@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tasks Page</title>
+  <link rel="stylesheet" type="text/css" href="index.css">
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</head>
+<body class="text-center">
+  <form action="/tasks/post" method="POST">
+    <div class="form-group">
+      <label for="executorName">Name</label>
+      <input name="name" type="name" class="form-control" id="executorName">
+    </div>
+    <div class="form-group">
+      <label for="executorTask">Task</label>
+      <input name="task" class="form-control" id="executorTask">
+    </div>
+    <button type="submit" class="btn btn-primary" value="Send">Create Task</button>
+  </form>
+  <h1>Tasks list:</h1>
+  <form method="GET">
+    {{#each tasks}}
+    <div class="list-group">
+      <button type="submit" formaction="/edit/{{this._id}}"
+        class="list-group-item list-group-item-action flex-column align-items-center">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 id="name" class="mb-1">{{this.executorName}}</h5>
+        </div>
+        <p id="task" class="mb-1">{{this.task}}</p>
+      </a>
+    </div>
+    {{/each}}
+  <a href="/tasks">LogOut</a>
+</body>
+<html>
